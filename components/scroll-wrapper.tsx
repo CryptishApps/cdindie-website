@@ -5,15 +5,14 @@ import { usePathname } from 'next/navigation';
 import { useWindowDimensions } from '@/hooks/useDimensions';
 import { ScrollAreaCustom } from '@/components/ui/scroll-area'
 
-interface ScrollWrapperProps extends React.PropsWithChildren {
-    id: string, 
-    children: any, 
-    containerHeight: any, 
-    extra: number | undefined, 
-    className: string | undefined 
+interface ScrollWrapperProps {
+    id?: string;
+    children?: React.ReactNode; 
+    containerHeight?: any;
+    className?: string;
 }
 
-const ScrollWrapper = ({ id, children, containerHeight, extra, className }: ScrollWrapperProps) => {
+const ScrollWrapper: React.FC<ScrollWrapperProps> = ({ children, id, containerHeight, className }) => {
 
     const ref = useRef<HTMLDivElement>(null);
 
@@ -26,7 +25,7 @@ const ScrollWrapper = ({ id, children, containerHeight, extra, className }: Scro
         if (ref?.current && !isMobile) {
             const fromTop = ref.current.getBoundingClientRect().top;
             const maxHeight = containerHeight || height-fromTop;
-            setFeedHeight(containerHeight || maxHeight + (extra||0));
+            setFeedHeight(containerHeight || maxHeight);
         } else {
             setFeedHeight('auto')
         }
