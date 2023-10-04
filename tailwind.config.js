@@ -2,19 +2,12 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
+    './pages/**/*.{ts,tsx,js,jsx}',
+    './components/**/*.{ts,tsx,js,jsx}',
+    './app/**/*.{ts,tsx,js,jsx}',
+    './src/**/*.{ts,tsx,js,jsx}',
 	],
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
     extend: {
       colors: {
         border: "hsl(var(--border))",
@@ -65,11 +58,31 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: 0 },
         },
+        "typing": {
+          "0%": {
+            width: "0%",
+            visibility: "hidden"
+          },
+          "100%": {
+            width: "100%"
+          }  
+        },
+        "blinker": {
+          '50%': {
+            opacity: 0
+          }
+        }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "typing": "typing 2s steps(20) alternate, blink .7s infinite",
+        "blink": "blinker 1s linear infinite"
       },
+      backgroundImage: {
+        "image-fade": "linear-gradient(to bottom, rgba(244, 247, 250, 0%), 80%, rgba(244, 247, 250, 1))",
+        "image-fade-dark": "linear-gradient(to bottom, rgba(10, 10, 18, 0%), 80%, rgba(10, 10, 18, 1)), linear-gradient(to right, rgba(10, 10, 18, 0%), 70%, rgba(10, 10, 18, 1))"
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],

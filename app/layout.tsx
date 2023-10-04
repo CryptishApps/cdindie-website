@@ -14,7 +14,7 @@ import { Toaster as NewYorkToaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
   title: {
-    default: siteConfig.name,
+    default: `${siteConfig.name} | Absolute monsters sharing their work`,
     template: `%s - ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -94,12 +94,13 @@ export default async function RootLayout({ children }: RootLayoutProps) {
             <AuthProvider sessionUser={user}>
               <div className="relative flex min-h-screen flex-col">
                 <div className="flex">
-                  <SideNavigation />
+                  <div className="hidden lg:flex">
+                    <SideNavigation />
+                  </div>
                   <div className="flex-1">
                     <SiteHeader/>
-                    <div className="container relative lg:pt-6">
+                    <div className="min-h-[calc(100vh-57px)] container relative">
                       {children}
-                      
                     </div>
                   </div>
                 </div>

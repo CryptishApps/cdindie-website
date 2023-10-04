@@ -1,7 +1,7 @@
 export const siteConfig = {
-    name: "cdindie",
-    url: "https://cdindie.com",
-    ogImage: "https://cdindie.com/og.jpg",
+    name: "Indie Beasts",
+    url: "https://indiebeasts.com",
+    ogImage: "https://indiebeasts.com/icon.png",
     description:
       "Indie developers sharing their projects, offering feedback and supporting each other to build great products.",
     links: {

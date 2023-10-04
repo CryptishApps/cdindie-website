@@ -57,7 +57,7 @@ const ScrollAreaCustom = React.forwardRef<
   <ScrollAreaPrimitive.Root
     className={cn("relative overflow-hidden", className)}
     {...props}>
-    <ScrollAreaPrimitive.Viewport id="feedViewport" ref={ref} className="h-full w-full rounded-[inherit]">
+    <ScrollAreaPrimitive.Viewport id={id || "feedViewport"} ref={ref} className="h-full w-full rounded-[inherit]">
       {children}
     </ScrollAreaPrimitive.Viewport>
     <ScrollBar />
